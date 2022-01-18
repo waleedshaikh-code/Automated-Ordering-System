@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "503476487146",
+    "project_id": "automated-ordering",
+    "storage_bucket": "automated-ordering.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:503476487146:android:689b992f78457d0ec9e893",
+        "android_client_info": {
+          "package_name": "com.practice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "503476487146-rsj33ahtnj1vm5ukrpn0ca61ris4m33a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJU6K0LtSUFyYkUmUdPiEu5zp6DCdQzfg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "503476487146-rsj33ahtnj1vm5ukrpn0ca61ris4m33a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
