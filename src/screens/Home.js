@@ -16,8 +16,6 @@ import {localRestaurants} from '../components/home/RestaurantItem';
 const Home = ({navigation}) => {
   const [restaurantData, setrestaurant] = useState(localRestaurants);
 
-
-
   return (
     <SafeAreaView>
       <StatusBar barStyle="dark-content" backgroundColor="#fff" />

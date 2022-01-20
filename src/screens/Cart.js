@@ -4,10 +4,12 @@ import {useSelector} from 'react-redux';
 
 const Cart = () => {
   const cart = useSelector(state => state.rootReducer.cart);
-  console.log(cart);
+  console.log('THis cart is printing', cart);
   return (
     <View>
-      <Text>cart</Text>
+      {cart.map((e, i) => (
+        <Text key={i}>{e.name}</Text>
+      ))}
     </View>
   );
 };
