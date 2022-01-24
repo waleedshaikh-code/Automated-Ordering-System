@@ -48,33 +48,6 @@ function toRad(Value) {
   return (Value * Math.PI) / 180;
 }
 
-export const localRestaurants = [
-  {
-    name: 'Biryani',
-    // image_url: require('../../assets/images/bakery.png'),
-    categories: ['Cafe', 'Bar'],
-    price: 'RS-150',
-    reviews: 1244,
-    rating: 4.5,
-  },
-  {
-    name: 'Biryani',
-    // image_url: require('../../assets/images/bakery.png'),
-    categories: ['Cafe', 'Bar'],
-    price: 'RS-150',
-    reviews: 1244,
-    rating: 4.5,
-  },
-  {
-    name: 'Biryani',
-    // image_url: require('../../assets/images/bakery.png'),
-    categories: ['Cafe', 'Bar'],
-    price: 'RS-150',
-    reviews: 1244,
-    rating: 4.5,
-  },
-];
-
 function RestaurantDetail({navigation, route}) {
   const [cL, setCL] = useState({});
   const [allowed, setAllowed] = useState(false);
@@ -122,7 +95,7 @@ function RestaurantDetail({navigation, route}) {
           position.coords?.longitude,
         );
         console.log(dist, 'distance');
-        setAllowed(dist * 1000 < 2500);
+        setAllowed(dist * 1000 < 8000);
       },
       error => console.log(error),
       //   {enableHighAccuracy: true},
