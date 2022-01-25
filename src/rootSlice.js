@@ -13,7 +13,12 @@ export const rootSlice = createSlice({
       state.cart = [...state.cart, {...action.payload}];
     },
     removeFromCart: (state, action) => {
-      state.cart = [...state.cart.filter(item => item.id != action.payload.id)];
+      state.cart = [
+        ...state.cart.filter(item => item.name != action.payload.name),
+      ];
+      // alert('Remove');
+      console.log('state.cart', state.cart);
+      // state.cart = state.cart;
     },
   },
 });

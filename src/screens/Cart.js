@@ -8,21 +8,15 @@ import {ScrollView} from 'react-native-gesture-handler';
 import {removeFromCart} from '../rootSlice';
 import RestaurantDetail from './RestaurantDetail';
 import {Item} from 'react-native-paper/lib/typescript/components/List/List';
+import CartItem from '../components/home/CartItem';
 
 const Cart = () => {
   const dispatch = useDispatch();
   const [phone, setPhone] = useState();
-  const [count, setCount] = useState(0);
   const [price, setPrice] = useState(0);
   const cart = useSelector(state => state.rootReducer.cart);
   console.log('THis cart is printing', cart);
-  const increment = () => {
-    setCount(count + 1);
-  };
-
-  const decrement = () => {
-    setCount(count - 1);
-  };
+  
 
   return (
     <View>
@@ -60,77 +54,7 @@ const Cart = () => {
           />
         </View>
         {cart.map((e, i) => (
-          <View
-            key={i}
-            style={{
-              marginTop: 2,
-              marginVertical: 10,
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'space-around',
-              borderBottomColor: 'grey',
-              borderBottomWidth: 1,
-              marginHorizontal: 30,
-            }}>
-            <View style={{}}>
-              <Image
-                style={{width: 80, height: 80, borderRadius: 50}}
-                source={{uri: e.image_url}}
-              />
-            </View>
-
-            <View
-              style={{paddingRight: 60, paddingVertical: 5, paddingTop: 20}}>
-              <Text style={{fontWeight: 'bold', fontSize: 18, color: 'black'}}>
-                {e.name}
-              </Text>
-              <Text>{e.about}</Text>
-              <Text style={{color: 'red', fontWeight: '700', fontSize: 17}}>
-                {e.price}
-              </Text>
-            </View>
-
-            <Icon
-              name="delete"
-              size={28}
-              style={{right: 20, top: 10, position: 'absolute'}}
-              onPress={() => {
-                dispatch(removeFromCart(cart));
-              }}
-            />
-            <View
-              style={{
-                justifyContent: 'flex-end',
-                display: 'flex',
-                flexDirection: 'row',
-                paddingTop: 50,
-              }}>
-              <Text
-                onPress={increment}
-                style={{
-                  fontSize: 40,
-                  fontWeight: 'bold',
-                  marginRight: 15,
-                  color: 'black',
-                }}>
-                -
-              </Text>
-              <Text
-                style={{
-                  fontSize: 25,
-                  fontWeight: 'bold',
-                  color: 'red',
-                  marginRight: 15,
-                }}>
-                {count}
-              </Text>
-              <Text
-                onPress={decrement}
-                style={{fontSize: 30, fontWeight: 'bold', color: 'black'}}>
-                +
-              </Text>
-            </View>
-          </View>
+          <CartItem e={e} i={i} />
         ))}
       </ScrollView>
     </View>

@@ -16,6 +16,7 @@ import MapView, {
 import Geolocation from '@react-native-community/geolocation';
 import {request, PERMISSIONS} from 'react-native-permissions';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import { reqRange } from '../const/Colors';
 
 function calcCrow(lat1, lon1, lat2, lon2) {
   var R = 6371; // km
@@ -84,7 +85,7 @@ let Map = () => {
           cL?.longitude,
         );
 
-        dist * 1000 > 2500 //range radius
+        dist * 1000 > reqRange //range radius
           ? Alert.alert('Not Allowed ')
           : Alert.alert('Allowed');
       },
@@ -113,9 +114,11 @@ let Map = () => {
           style={styles.map}>
           <Circle
             center={{latitude: 24.924344, longitude: 67.083973}}
-            radius={2500}
+            radius={reqRange}
             fillColor={'rgba(200,300,200,0.5)'}></Circle>
-          <Marker coordinate={cL} title={'Iqra University'}></Marker>
+          <Marker
+            coordinate={{latitude: 24.924344, longitude: 67.083973}}
+            title={'Iqra University'}></Marker>
         </MapView>
       </View>
     </SafeAreaView>

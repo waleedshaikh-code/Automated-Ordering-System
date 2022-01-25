@@ -19,7 +19,7 @@ import MapView, {
 } from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
 import {request, PERMISSIONS} from 'react-native-permissions';
-import COLORS from '../const/Colors';
+import COLORS, { reqRange } from '../const/Colors';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Cart from './Cart';
 
@@ -50,7 +50,7 @@ function toRad(Value) {
 
 function RestaurantDetail({navigation, route}) {
   const [cL, setCL] = useState({});
-  const [allowed, setAllowed] = useState(false);
+  const [allowed, setAllowed] = useState(true);
   useEffect(() => {
     requestLocationPermission();
   }, []);
@@ -95,10 +95,9 @@ function RestaurantDetail({navigation, route}) {
           position.coords?.longitude,
         );
         console.log(dist, 'distance');
-        setAllowed(dist * 1000 < 8000);
+        setAllowed(dist * 1000 < reqRange);
       },
       error => console.log(error),
-      //   {enableHighAccuracy: true},
     );
   };
   const restaurant = route.params;
